@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { store } from './app/store';
+import WeatherTable from './components/WeatherTable';
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import WeatherDataTable from "./components/WeatherDataTable";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+    return (
+        <Provider store={store}>
+            <div className="App">
+                <h1>Дневник наблюдения за погодой</h1>
+                <WeatherDataTable />
+                {/*<WeatherTable />*/}
+            </div>
+        </Provider>
+    );
+};
 
 export default App;
